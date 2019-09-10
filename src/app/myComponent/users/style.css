@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    padding: 10px;
+    text-align: center;
+}
+
+.container form {
+    width: 40%;
+}
+
+p{
+    color: red;
+}
+
+#formFooter{
+    margin: 10px;
+}

@@ -1,0 +1,46 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" class="form-control" name="userName" id="username" formControlName="userName"
+                placeholder="Enter your name">
+            <p *ngIf="!f.userName.valid && (submitted || f.userName.touched)">
+                your name is required
+            </p>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" id="email" formControlName="email"
+                placeholder="Enter your email">
+            <p *ngIf="!f.email.valid && (submitted || f.email.touched)">
+                email is required
+            </p>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber"
+                placeholder="Enter your phone">
+            <p *ngIf="!f.phoneNumber.valid && (submitted || f.phoneNumber.touched)">
+                your phone is required
+            </p>
+        </div>
+        <div class="form-check" *ngFor="let role of roles , let value of values ">
+            <input class="form-check-input" type="radio" name="role"  value="{{value}}"  formControlName="role" checked>
+            <label class="form-check-label" for="roles">
+               {{role}}
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder=" Enter apassword" name="password" id="password"
+                formControlName="password">
+            <p *ngIf="!f.password.valid && (f.password.touched||submitted)">
+                password is required
+            </p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+        <div id="formFooter">
+            <a routerLink="/login">Aleardy have account?</a>
+        </div>
+        <div *ngIf="errorMsg">
+            <p>{{errorMsg}}</p>
+        </div>
+    </form>
+</div>
